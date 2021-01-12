@@ -3,7 +3,7 @@ import './App.scss';
 
 // TODO add absoloute paths
 
-import Header from "./containers/Header/Header";
+import Header from "containers/Header/Header";
 
 function App() {
   return (

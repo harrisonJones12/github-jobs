@@ -2,8 +2,25 @@
   font-family: Arial, Helvetica, sans-serif;
   height: 136px;
 
-  .nav-heading {
-    color: white;
-    font-size: large;
+  .nav-background {
+    background-image: url("../../assets/mobile/bg-pattern-header.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100%;
+
+    @media (min-width: 768px) {
+      background-image: url("../../assets/tablet/bg-pattern-header.svg");
+    }
+
+    @media (min-width: 1110px) {
+      background-image: url("../../assets/desktop/bg-pattern-header.svg");
+    }
+
+    .nav-heading {
+      color: white;
+      font-size: 32px;
+      font-weight: 700;
+    }
   }
 }
