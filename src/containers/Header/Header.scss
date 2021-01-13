@@ -6,8 +6,13 @@
     background-image: url("../../assets/mobile/bg-pattern-header.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100vw;
     height: 100%;
+    box-sizing: border-box;
+
+    //layout styles
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
 
     @media (min-width: 768px) {
       background-image: url("../../assets/tablet/bg-pattern-header.svg");
