@@ -36,9 +36,13 @@
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: #4c6bd6;
     -webkit-transition: 0.4s;
     transition: 0.4s;
+  }
+
+  .slider:hover:before {
+    background-color: #6e87de;
   }
 
   input:checked + .slider {
