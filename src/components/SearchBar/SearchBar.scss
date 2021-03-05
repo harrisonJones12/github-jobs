@@ -6,11 +6,19 @@
   margin-top: 36px;
 
   .search-form {
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
+    // padding: 16px;
+    // display: flex;
+    // justify-content: space-between;
 
-    .search-field {
+    //TODO add a media query here if need be
+
+    .field-set {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .field-set .title-search-field {
       background: transparent;
       border: none;
       color: #fff;
