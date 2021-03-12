@@ -1,5 +1,5 @@
 .search-container {
-  background-color: #19202d;
+  background-color: #19202d; //very dark blue
   border-radius: 6px;
   height: 80px;
   box-sizing: border-box;
@@ -24,15 +24,38 @@
       color: #fff;
       font-size: 16px;
       width: 105px;
+
+      @media (min-width: 1110px) {
+        width: 270px;
+      }
     }
 
     .search-button {
       width: 48px;
       height: 48px;
-      background: #5964e0;
+      background: #5964e0; //violet
       border-radius: 5px;
       border: none;
       margin-left: 24px;
+    }
+  }
+
+  /* These are styles for the desktop search bar */
+
+  // .search-desktop-icon {
+  //   display: none;
+
+  //   @media (min-width: 1110px) {
+  //     display: inline-block;
+  //   }
+  // }
+
+  .search-icon-input-container {
+    align-self: center;
+    @media (min-width: 1110px) {
+      display: flex;
+      align-items: center;
+      width: 271px;
     }
   }
 }
