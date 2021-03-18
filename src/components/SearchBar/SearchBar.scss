@@ -22,7 +22,6 @@
       @media (min-width: 768px) {
         height: 80px;
         padding: 0;
-        // justify-content: normal;
 
         .vertical-line {
           height: auto;
@@ -50,15 +49,6 @@
       border: none;
       color: #fff;
       font-size: 16px;
-
-      // @media (min-width: 760px) {
-      //   width: 222px;
-      // }
-
-      // @media (min-width: 1110px) {
-      //   //TODO might not need this viewport width
-      //   width: 278px;
-      // }
     }
 
     .title-search-field {
