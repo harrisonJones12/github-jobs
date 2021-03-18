@@ -31,15 +31,15 @@
       width: 115px;
     }
 
+    @media (min-width: 768px) {
+      margin-right: 40px;
+      width: 689px;
+    }
+
     @media (min-width: 1440px) {
       margin-left: 165px;
       margin-right: 165px;
       max-width: 1110px;
-    }
-
-    @media (min-width: 768px) {
-      margin-right: 40px;
-      width: 689px;
     }
   }
 

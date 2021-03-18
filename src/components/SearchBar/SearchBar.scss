@@ -37,17 +37,17 @@
           align-items: center;
           width: 213px;
 
-          @media (min-width: 1110px) {
-            width: 169px;
-            margin-right: 20px;
-          }
+          // @media (min-width: 1110px) {
+          //   width: 169px;
+          //   margin-right: 20px;
+          // }
         }
       }
-      @media (min-width: 1110px) {
-        .filter-icon-input-desktop-container {
-          width: 300px;
-        }
-      }
+      // @media (min-width: 1110px) {
+      //   .filter-icon-input-desktop-container {
+      //     width: 300px;
+      //   }
+      // }
       // @media (min-width: 1800px) {
       //   .filter-icon-input-desktop-container {
       //     position: relative;
@@ -68,10 +68,10 @@
       //   width: 222px;
       // }
 
-      @media (min-width: 1110px) {
-        //TODO might not need this viewport width
-        width: 278px;
-      }
+      // @media (min-width: 1110px) {
+      //   //TODO might not need this viewport width
+      //   width: 278px;
+      // }
     }
 
     .location-search-field {
@@ -117,10 +117,10 @@
       width: 147px;
       margin-right: 51px;
     }
-    @media (min-width: 1110px) {
-      //TODO might not need this viewport width
-      width: 463px;
-    }
+    // @media (min-width: 1110px) {
+    //   //TODO might not need this viewport width
+    //   width: 463px;
+    // }
     // @media (min-width: 1500px) {
     //   width: 764px;
     // }
@@ -179,17 +179,17 @@
         //   }
         // }
 
-        @media (min-width: 1166px) {
-          //TODO might not need this viewport width
-          width: 122px;
-        }
+        // @media (min-width: 1166px) {
+        //   //TODO might not need this viewport width
+        //   width: 122px;
+        // }
       }
     }
 
-    @media (min-width: 1110px) {
-      //TODO might not need this viewport width
-      width: 345px;
-      margin-left: 20px;
-    }
+    // @media (min-width: 1110px) {
+    //   //TODO might not need this viewport width
+    //   width: 345px;
+    //   margin-left: 20px;
+    // }
   }
 }

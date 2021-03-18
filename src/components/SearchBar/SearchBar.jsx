@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const SearchBar = () => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
-  const desktopBreakPoint = 1110;
+  const desktopBreakPoint = 1440;
 
   const TabletBreakPoint = 768;
 
