@@ -9,6 +9,10 @@
     width: 689px;
   }
 
+  @media (min-width: 1440px) {
+    width: 100%;
+  }
+
   .search-form {
     // padding: 16px;
     // display: flex;
@@ -39,6 +43,10 @@
           width: 169px;
           margin-right: 20px;
 
+          @media (min-width: 1440px) {
+            margin-right: 108px;
+          }
+
           // @media (min-width: 1110px) {
           //   width: 169px;
           //   margin-right: 20px;
@@ -58,13 +66,12 @@
       // }
     }
 
-    .field-set .title-search-field,
+    .title-search-field,
     .location-search-field {
       background: transparent;
       border: none;
       color: #fff;
       font-size: 16px;
-      width: 107px;
 
       // @media (min-width: 760px) {
       //   width: 222px;
@@ -74,6 +81,14 @@
       //   //TODO might not need this viewport width
       //   width: 278px;
       // }
+    }
+
+    .title-search-field {
+      width: 107px;
+
+      @media (min-width: 1440px) {
+        width: 271px;
+      }
     }
 
     .location-search-field {
@@ -115,10 +130,17 @@
       display: flex;
       align-items: center;
       // padding: 28px 0 28px 32px;
-      margin-left: 32px;
+      margin-left: 24px;
       width: 147px;
       margin-right: 51px;
     }
+
+    @media (min-width: 1440px) {
+      width: 312px;
+      margin-left: 32px;
+      margin-right: 119px;
+    }
+
     // @media (min-width: 1110px) {
     //   //TODO might not need this viewport width
     //   width: 463px;
@@ -139,6 +161,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media (min-width: 1440px) {
+          width: 148px;
+        }
       }
 
       .full-time-only-checkbox {
@@ -171,6 +197,10 @@
         text-transform: capitalize;
         font-weight: bold;
         margin-right: 16px;
+
+        @media (min-width: 1440px) {
+          width: 123px;
+        }
 
         // @media (min-width: 1120px) {
         //   width: 80px;

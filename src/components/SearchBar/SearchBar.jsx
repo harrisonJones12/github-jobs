@@ -119,7 +119,7 @@ const SearchBar = () => {
           value="Bike"
         />
         <label for="full-time-only-checkbox" className="check-box-label">
-          {viewportWidth >= TabletBreakPoint ? "full time" : "full time only"}
+          {viewportWidth >= desktopBreakPoint ? "full time only" : "full time"}
         </label>
       </div>
       <button className="tablet-desktop-search-button">search</button>

@@ -15,6 +15,17 @@
   align-items: center;
   padding: 30px;
 
+  .nav-inner-wrapper {
+    width: 327px;
+
+    @media (min-width: 768px) {
+      width: 689px;
+    }
+    @media (min-width: 1440px) {
+      width: 1110px;
+    }
+  }
+
   @media (min-width: 768px) {
     background-image: url("../../assets/tablet/bg-pattern-header.svg");
   }
@@ -31,16 +42,10 @@
       width: 115px;
     }
 
-    @media (min-width: 768px) {
-      margin-right: 40px;
-      width: 689px;
-    }
-
-    @media (min-width: 1440px) {
-      margin-left: 165px;
-      margin-right: 165px;
-      max-width: 1110px;
-    }
+    // @media (min-width: 1440px) {
+    //   margin-left: 165px;
+    //   margin-right: 165px;
+    // }
   }
 
   .nav-heading {
