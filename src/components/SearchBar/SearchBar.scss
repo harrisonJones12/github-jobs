@@ -1,38 +1,155 @@
 .search-container {
-  background-color: #19202d;
+  background-color: #19202d; //very dark blue
   border-radius: 6px;
   height: 80px;
   box-sizing: border-box;
   margin-top: 36px;
 
+  @media (min-width: 768px) {
+    width: 689px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 100%;
+  }
+
   .search-form {
-    // padding: 16px;
-    // display: flex;
-    // justify-content: space-between;
-
-    //TODO add a media query here if need be
-
     .field-set {
       padding: 16px;
       display: flex;
       justify-content: space-between;
+
+      @media (min-width: 768px) {
+        height: 80px;
+        padding: 0;
+
+        .vertical-line {
+          height: auto;
+          border-left: 1px solid #6e8098;
+          opacity: 0.2;
+        }
+
+        .filter-icon-input-desktop-container {
+          margin-left: 23px;
+          display: flex;
+          align-items: center;
+          width: 169px;
+          margin-right: 20px;
+
+          @media (min-width: 1440px) {
+            margin-right: 108px;
+          }
+        }
+      }
     }
 
-    .field-set .title-search-field {
+    .title-search-field,
+    .location-search-field {
       background: transparent;
       border: none;
       color: #fff;
       font-size: 16px;
-      width: 105px;
+    }
+
+    .title-search-field {
+      width: 107px;
+
+      @media (min-width: 1440px) {
+        width: 271px;
+      }
+    }
+
+    .location-search-field {
+      @media (min-width: 768px) {
+        width: 135px;
+      }
     }
 
     .search-button {
       width: 48px;
       height: 48px;
-      background: #5964e0;
+      background: #5964e0; //violet
       border-radius: 5px;
       border: none;
       margin-left: 24px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .search-desktop-icon,
+    .location-icon {
+      margin-right: 16px;
+    }
+  }
+
+  .search-icon-input-container {
+    align-self: center;
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+
+      margin-left: 24px;
+      width: 147px;
+      margin-right: 51px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 312px;
+      margin-left: 32px;
+      margin-right: 119px;
+    }
+  }
+
+  .search-button-input-container {
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+
+      .input-label-container {
+        width: 108px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (min-width: 1440px) {
+          width: 148px;
+        }
+      }
+
+      .full-time-only-checkbox {
+        background-color: #19202d;
+        opacity: 0.1;
+        width: 24px;
+        height: 24px;
+      }
+
+      .full-time-only-checkbox:checked {
+        opacity: 1;
+      }
+      .check-box-label {
+        color: white;
+        text-transform: capitalize;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .tablet-desktop-search-button {
+        height: 48px;
+        width: 80px;
+        background: #5964e0; //violet
+        border-radius: 5px;
+        border: none;
+        margin-left: 24px;
+        color: white;
+        font-size: 16px;
+        text-transform: capitalize;
+        font-weight: bold;
+        margin-right: 16px;
+
+        @media (min-width: 1440px) {
+          width: 123px;
+        }
+      }
     }
   }
 }
