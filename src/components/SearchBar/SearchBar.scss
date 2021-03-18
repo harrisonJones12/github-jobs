@@ -14,12 +14,6 @@
   }
 
   .search-form {
-    // padding: 16px;
-    // display: flex;
-    // justify-content: space-between;
-
-    //TODO add a media query here if need be
-
     .field-set {
       padding: 16px;
       display: flex;
@@ -46,24 +40,8 @@
           @media (min-width: 1440px) {
             margin-right: 108px;
           }
-
-          // @media (min-width: 1110px) {
-          //   width: 169px;
-          //   margin-right: 20px;
-          // }
         }
       }
-      // @media (min-width: 1110px) {
-      //   .filter-icon-input-desktop-container {
-      //     width: 300px;
-      //   }
-      // }
-      // @media (min-width: 1800px) {
-      //   .filter-icon-input-desktop-container {
-      //     position: relative;
-      //     left: -60px;
-      //   }
-      // }
     }
 
     .title-search-field,
@@ -107,16 +85,6 @@
     }
   }
 
-  /* These are styles for the desktop search bar */
-
-  // .search-desktop-icon {
-  //   display: none;
-
-  //   @media (min-width: 1110px) {
-  //     display: inline-block;
-  //   }
-  // }
-
   @media (min-width: 768px) {
     .search-desktop-icon,
     .location-icon {
@@ -129,7 +97,7 @@
     @media (min-width: 768px) {
       display: flex;
       align-items: center;
-      // padding: 28px 0 28px 32px;
+
       margin-left: 24px;
       width: 147px;
       margin-right: 51px;
@@ -140,21 +108,12 @@
       margin-left: 32px;
       margin-right: 119px;
     }
-
-    // @media (min-width: 1110px) {
-    //   //TODO might not need this viewport width
-    //   width: 463px;
-    // }
-    // @media (min-width: 1500px) {
-    //   width: 764px;
-    // }
   }
 
   .search-button-input-container {
     @media (min-width: 768px) {
       display: flex;
       align-items: center;
-      // width: 252px;
 
       .input-label-container {
         width: 108px;
@@ -168,7 +127,6 @@
       }
 
       .full-time-only-checkbox {
-        // margin-right: 16px;
         background-color: #19202d;
         opacity: 0.1;
         width: 24px;
@@ -201,28 +159,7 @@
         @media (min-width: 1440px) {
           width: 123px;
         }
-
-        // @media (min-width: 1120px) {
-        //   width: 80px;
-        // }
-
-        // @media (min-width: 1166px) {
-        //   #full-time-only-checkbox {
-        //     margin-right: 16px;
-        //   }
-        // }
-
-        // @media (min-width: 1166px) {
-        //   //TODO might not need this viewport width
-        //   width: 122px;
-        // }
       }
     }
-
-    // @media (min-width: 1110px) {
-    //   //TODO might not need this viewport width
-    //   width: 345px;
-    //   margin-left: 20px;
-    // }
   }
 }
