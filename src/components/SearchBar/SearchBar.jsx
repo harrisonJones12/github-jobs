@@ -80,7 +80,7 @@ const SearchBar = () => {
         placeholder={
           viewportWidth >= desktopBreakPoint
             ? "Filter by title, companies, expertise…"
-            : "Filter by title"
+            : "Filter by title ..."
         }
       />
     </div>
@@ -110,17 +110,18 @@ const SearchBar = () => {
 
   const desktopSearchSection = (
     <div className="search-button-input-container">
-      {/* <div className="search-button-input-inner-wrapper"> */}
-      <input
-        type="checkbox"
-        id="full-time-only-checkbox"
-        name="vehicle1"
-        value="Bike"
-      />
-      <label for="full-time-only-checkbox" className="check-box-label">
-        {viewportWidth >= TabletBreakPoint ? "full time" : "full time only"}
-      </label>
-      {/* </div> */}
+      <div className="input-label-container">
+        <input
+          type="checkbox"
+          className="full-time-only-checkbox"
+          id="full-time-only-checkbox"
+          name="vehicle1"
+          value="Bike"
+        />
+        <label for="full-time-only-checkbox" className="check-box-label">
+          {viewportWidth >= TabletBreakPoint ? "full time" : "full time only"}
+        </label>
+      </div>
       <button className="tablet-desktop-search-button">search</button>
     </div>
   );

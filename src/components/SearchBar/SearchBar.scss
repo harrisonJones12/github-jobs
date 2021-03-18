@@ -29,13 +29,15 @@
         .vertical-line {
           height: auto;
           border-left: 1px solid #6e8098;
+          opacity: 0.2;
         }
 
         .filter-icon-input-desktop-container {
           margin-left: 23px;
           display: flex;
           align-items: center;
-          width: 213px;
+          width: 169px;
+          margin-right: 20px;
 
           // @media (min-width: 1110px) {
           //   width: 169px;
@@ -62,7 +64,7 @@
       border: none;
       color: #fff;
       font-size: 16px;
-      width: 105px;
+      width: 107px;
 
       // @media (min-width: 760px) {
       //   width: 222px;
@@ -130,16 +132,16 @@
     @media (min-width: 768px) {
       display: flex;
       align-items: center;
-      width: 252px;
+      // width: 252px;
 
-      // .search-button-input-inner-wrapper {
-      //   width: 108px;
-      //   display: flex;
-      //   align-items: center;
-      //   justify-content: space-between;
-      // }
+      .input-label-container {
+        width: 108px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-      #full-time-only-checkbox {
+      .full-time-only-checkbox {
         // margin-right: 16px;
         background-color: #19202d;
         opacity: 0.1;
@@ -147,7 +149,7 @@
         height: 24px;
       }
 
-      #full-time-only-checkbox:checked {
+      .full-time-only-checkbox:checked {
         opacity: 1;
       }
       .check-box-label {
@@ -168,6 +170,7 @@
         font-size: 16px;
         text-transform: capitalize;
         font-weight: bold;
+        margin-right: 16px;
 
         // @media (min-width: 1120px) {
         //   width: 80px;
