@@ -5,6 +5,10 @@
   box-sizing: border-box;
   margin-top: 36px;
 
+  @media (min-width: 768px) {
+    width: 689px;
+  }
+
   .search-form {
     // padding: 16px;
     // display: flex;
@@ -16,17 +20,63 @@
       padding: 16px;
       display: flex;
       justify-content: space-between;
+
+      @media (min-width: 768px) {
+        height: 80px;
+        padding: 0;
+        // justify-content: normal;
+
+        .vertical-line {
+          height: auto;
+          border-left: 1px solid #6e8098;
+        }
+
+        .filter-icon-input-desktop-container {
+          margin-left: 23px;
+          display: flex;
+          align-items: center;
+          width: 213px;
+
+          @media (min-width: 1110px) {
+            width: 169px;
+            margin-right: 20px;
+          }
+        }
+      }
+      @media (min-width: 1110px) {
+        .filter-icon-input-desktop-container {
+          width: 300px;
+        }
+      }
+      // @media (min-width: 1800px) {
+      //   .filter-icon-input-desktop-container {
+      //     position: relative;
+      //     left: -60px;
+      //   }
+      // }
     }
 
-    .field-set .title-search-field {
+    .field-set .title-search-field,
+    .location-search-field {
       background: transparent;
       border: none;
       color: #fff;
       font-size: 16px;
       width: 105px;
 
+      // @media (min-width: 760px) {
+      //   width: 222px;
+      // }
+
       @media (min-width: 1110px) {
-        width: 270px;
+        //TODO might not need this viewport width
+        width: 278px;
+      }
+    }
+
+    .location-search-field {
+      @media (min-width: 768px) {
+        width: 135px;
       }
     }
 
@@ -50,12 +100,96 @@
   //   }
   // }
 
+  @media (min-width: 768px) {
+    .search-desktop-icon,
+    .location-icon {
+      margin-right: 16px;
+    }
+  }
+
   .search-icon-input-container {
     align-self: center;
-    @media (min-width: 1110px) {
+    @media (min-width: 768px) {
       display: flex;
       align-items: center;
-      width: 271px;
+      // padding: 28px 0 28px 32px;
+      margin-left: 32px;
+      width: 147px;
+      margin-right: 51px;
+    }
+    @media (min-width: 1110px) {
+      //TODO might not need this viewport width
+      width: 463px;
+    }
+    // @media (min-width: 1500px) {
+    //   width: 764px;
+    // }
+  }
+
+  .search-button-input-container {
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      width: 252px;
+
+      // .search-button-input-inner-wrapper {
+      //   width: 108px;
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: space-between;
+      // }
+
+      #full-time-only-checkbox {
+        // margin-right: 16px;
+        background-color: #19202d;
+        opacity: 0.1;
+        width: 24px;
+        height: 24px;
+      }
+
+      #full-time-only-checkbox:checked {
+        opacity: 1;
+      }
+      .check-box-label {
+        color: white;
+        text-transform: capitalize;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .tablet-desktop-search-button {
+        height: 48px;
+        width: 80px;
+        background: #5964e0; //violet
+        border-radius: 5px;
+        border: none;
+        margin-left: 24px;
+        color: white;
+        font-size: 16px;
+        text-transform: capitalize;
+        font-weight: bold;
+
+        // @media (min-width: 1120px) {
+        //   width: 80px;
+        // }
+
+        // @media (min-width: 1166px) {
+        //   #full-time-only-checkbox {
+        //     margin-right: 16px;
+        //   }
+        // }
+
+        @media (min-width: 1166px) {
+          //TODO might not need this viewport width
+          width: 122px;
+        }
+      }
+    }
+
+    @media (min-width: 1110px) {
+      //TODO might not need this viewport width
+      width: 345px;
+      margin-left: 20px;
     }
   }
 }

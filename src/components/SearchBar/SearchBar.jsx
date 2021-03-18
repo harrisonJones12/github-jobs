@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 const SearchBar = () => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
-  const breakPoint = 1110;
+  const desktopBreakPoint = 1110;
+
+  const TabletBreakPoint = 768;
 
   useEffect(() => {
     //call function to set viewport width in state
@@ -54,13 +56,29 @@ const SearchBar = () => {
     </svg>
   );
 
+  const locationIcon = (
+    <svg
+      width="17"
+      height="24"
+      xmlns="http://www.w3.org/2000/svg"
+      className="location-icon"
+    >
+      <path
+        d="M14.358 2.451A8.3 8.3 0 008.448 0a8.3 8.3 0 00-5.911 2.451c-2.922 2.925-3.285 8.427-.786 11.76l6.697 9.683 6.687-9.669c2.508-3.347 2.145-8.85-.777-11.774zm-5.833 8.894a3.057 3.057 0 01-3.051-3.054 3.057 3.057 0 013.05-3.055 3.057 3.057 0 013.052 3.055 3.057 3.057 0 01-3.051 3.054z"
+        fill="#5964E0"
+        fill-rule="nonzero"
+      />
+    </svg>
+  );
+
   const titleSearch = (
     <div className="search-icon-input-container">
+      {viewportWidth >= TabletBreakPoint && searchDesktopIcon}
       <input
         type="text"
         className="title-search-field"
         placeholder={
-          viewportWidth >= breakPoint
+          viewportWidth >= desktopBreakPoint
             ? "Filter by title, companies, expertise…"
             : "Filter by title"
         }
@@ -69,17 +87,18 @@ const SearchBar = () => {
   );
 
   const desktopFilterSection = (
-    <div>
-      <hr className="horizantal-line"></hr>
+    <>
+      <div className="vertical-line"></div>
       <div className="filter-icon-input-desktop-container">
-        {searchDesktopIcon}
+        {locationIcon}
         <input
           type="text"
-          className="title-search-field"
+          className="location-search-field"
           placeholder="Filter by location…"
         />
       </div>
-    </div>
+      <div className="vertical-line two"></div>
+    </>
   );
 
   const mobileFilterSearch = (
@@ -89,15 +108,33 @@ const SearchBar = () => {
     </div>
   );
 
+  const desktopSearchSection = (
+    <div className="search-button-input-container">
+      {/* <div className="search-button-input-inner-wrapper"> */}
+      <input
+        type="checkbox"
+        id="full-time-only-checkbox"
+        name="vehicle1"
+        value="Bike"
+      />
+      <label for="full-time-only-checkbox" className="check-box-label">
+        {viewportWidth >= TabletBreakPoint ? "full time" : "full time only"}
+      </label>
+      {/* </div> */}
+      <button className="tablet-desktop-search-button">search</button>
+    </div>
+  );
+
   return (
     <>
       <div className="search-container">
         <form className="search-form">
           <fieldset className="field-set">
             {titleSearch}
-            {viewportWidth >= breakPoint
+            {viewportWidth >= TabletBreakPoint
               ? desktopFilterSection
               : mobileFilterSearch}
+            {viewportWidth >= TabletBreakPoint && desktopSearchSection}
           </fieldset>
         </form>
       </div>

@@ -12,19 +12,35 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   padding: 30px;
 
   @media (min-width: 768px) {
     background-image: url("../../assets/tablet/bg-pattern-header.svg");
   }
 
-  @media (min-width: 1110px) {
+  @media (min-width: 1440px) {
     background-image: url("../../assets/desktop/bg-pattern-header.svg");
   }
 
   .heading-toggle-container {
     display: flex;
     justify-content: space-between;
+
+    .nav-heading {
+      width: 115px;
+    }
+
+    @media (min-width: 1440px) {
+      margin-left: 165px;
+      margin-right: 165px;
+      max-width: 1110px;
+    }
+
+    @media (min-width: 768px) {
+      margin-right: 40px;
+      width: 689px;
+    }
   }
 
   .nav-heading {
