@@ -7,6 +7,8 @@ const SearchBar = () => {
 
   const TabletBreakPoint = 768;
 
+  const [showFilterModal, setshowFilterModal] = useState(false);
+
   useEffect(() => {
     //call function to set viewport width in state
     const handleWindowResize = () => setViewportWidth(window.innerWidth);
@@ -18,6 +20,11 @@ const SearchBar = () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+
+  const filterButtonOnClickHandler = (e) => {
+    e.preventDefault();
+    setshowFilterModal(true);
+  };
 
   const filterIcon = (
     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -103,8 +110,48 @@ const SearchBar = () => {
 
   const mobileFilterSearch = (
     <div className="icon-button-group">
-      {filterIcon}
+      <button
+        className="filter-button"
+        onClick={(e) => filterButtonOnClickHandler(e)}
+      >
+        {filterIcon}
+      </button>
       <button className="search-button">{searchIcon}</button>
+    </div>
+  );
+
+  const filterModal = (
+    <div className="filter-modal">
+      <div className="filter-modal-content">
+        {/* location input field */}
+        <div className="mobile-icon-input-container">
+          {locationIcon}
+          <input
+            type="text"
+            className="location-search-field"
+            placeholder="Filter by location…"
+          />
+        </div>
+        <hr className="horizontal-line" />
+        {/* full time check box */}
+        <div className="mobile-checkbox-button-container">
+          <div className="input-label-container">
+            <input
+              type="checkbox"
+              className="full-time-only-checkbox"
+              id="full-time-only-checkbox"
+              name="vehicle1"
+              value="Bike"
+            />
+            <label for="full-time-only-checkbox" className="check-box-label">
+              {viewportWidth >= desktopBreakPoint
+                ? "full time only"
+                : "full time"}
+            </label>
+          </div>
+          <button className="mobile-filter-search-button">search</button>
+        </div>
+      </div>
     </div>
   );
 
@@ -128,6 +175,7 @@ const SearchBar = () => {
 
   return (
     <>
+      {showFilterModal && filterModal}
       <div className="search-container">
         <form className="search-form">
           <fieldset className="field-set">
