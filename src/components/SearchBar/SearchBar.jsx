@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ setShowFilterModal }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   const desktopBreakPoint = 1440;
 
   const TabletBreakPoint = 768;
-
-  const [showFilterModal, setshowFilterModal] = useState(false);
 
   useEffect(() => {
     //call function to set viewport width in state
@@ -23,7 +21,11 @@ const SearchBar = () => {
 
   const filterButtonOnClickHandler = (e) => {
     e.preventDefault();
-    setshowFilterModal(true);
+    setShowFilterModal(true);
+  };
+
+  const handleSearchClickHandler = (e) => {
+    e.preventDefault();
   };
 
   const filterIcon = (
@@ -108,7 +110,7 @@ const SearchBar = () => {
     </>
   );
 
-  const mobileFilterSearch = (
+  const mobileFilterSearchSection = (
     <div className="icon-button-group">
       <button
         className="filter-button"
@@ -116,42 +118,9 @@ const SearchBar = () => {
       >
         {filterIcon}
       </button>
-      <button className="search-button">{searchIcon}</button>
-    </div>
-  );
-
-  const filterModal = (
-    <div className="filter-modal">
-      <div className="filter-modal-content">
-        {/* location input field */}
-        <div className="mobile-icon-input-container">
-          {locationIcon}
-          <input
-            type="text"
-            className="location-search-field"
-            placeholder="Filter by location…"
-          />
-        </div>
-        <hr className="horizontal-line" />
-        {/* full time check box */}
-        <div className="mobile-checkbox-button-container">
-          <div className="input-label-container">
-            <input
-              type="checkbox"
-              className="full-time-only-checkbox"
-              id="full-time-only-checkbox"
-              name="vehicle1"
-              value="Bike"
-            />
-            <label for="full-time-only-checkbox" className="check-box-label">
-              {viewportWidth >= desktopBreakPoint
-                ? "full time only"
-                : "full time"}
-            </label>
-          </div>
-          <button className="mobile-filter-search-button">search</button>
-        </div>
-      </div>
+      <button className="search-button" onClick={handleSearchClickHandler}>
+        {searchIcon}
+      </button>
     </div>
   );
 
@@ -169,20 +138,24 @@ const SearchBar = () => {
           {viewportWidth >= desktopBreakPoint ? "full time only" : "full time"}
         </label>
       </div>
-      <button className="tablet-desktop-search-button">search</button>
+      <button
+        className="tablet-desktop-search-button"
+        onClick={handleSearchClickHandler}
+      >
+        search
+      </button>
     </div>
   );
 
   return (
     <>
-      {showFilterModal && filterModal}
       <div className="search-container">
         <form className="search-form">
           <fieldset className="field-set">
             {titleSearch}
             {viewportWidth >= TabletBreakPoint
               ? desktopFilterSection
-              : mobileFilterSearch}
+              : mobileFilterSearchSection}
             {viewportWidth >= TabletBreakPoint && desktopSearchSection}
           </fieldset>
         </form>
