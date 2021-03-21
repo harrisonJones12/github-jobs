@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ setShowFilterModal }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   const desktopBreakPoint = 1440;
@@ -18,6 +18,15 @@ const SearchBar = () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
+
+  const filterButtonOnClickHandler = (e) => {
+    e.preventDefault();
+    setShowFilterModal(true);
+  };
+
+  const handleSearchClickHandler = (e) => {
+    e.preventDefault();
+  };
 
   const filterIcon = (
     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -101,10 +110,17 @@ const SearchBar = () => {
     </>
   );
 
-  const mobileFilterSearch = (
+  const mobileFilterSearchSection = (
     <div className="icon-button-group">
-      {filterIcon}
-      <button className="search-button">{searchIcon}</button>
+      <button
+        className="filter-button"
+        onClick={(e) => filterButtonOnClickHandler(e)}
+      >
+        {filterIcon}
+      </button>
+      <button className="search-button" onClick={handleSearchClickHandler}>
+        {searchIcon}
+      </button>
     </div>
   );
 
@@ -122,7 +138,12 @@ const SearchBar = () => {
           {viewportWidth >= desktopBreakPoint ? "full time only" : "full time"}
         </label>
       </div>
-      <button className="tablet-desktop-search-button">search</button>
+      <button
+        className="tablet-desktop-search-button"
+        onClick={handleSearchClickHandler}
+      >
+        search
+      </button>
     </div>
   );
 
@@ -134,7 +155,7 @@ const SearchBar = () => {
             {titleSearch}
             {viewportWidth >= TabletBreakPoint
               ? desktopFilterSection
-              : mobileFilterSearch}
+              : mobileFilterSearchSection}
             {viewportWidth >= TabletBreakPoint && desktopSearchSection}
           </fieldset>
         </form>
