@@ -11,6 +11,10 @@
   padding-top: 225px;
   top: 0;
 
+  @media (min-width: 768px) {
+    display: none;
+  }
+
   .filter-modal-content {
     padding: 24px;
     width: 327px;
@@ -18,6 +22,7 @@
     background-color: #19202d;
     box-sizing: border-box;
     margin-left: 24px;
+    margin: 0 auto;
   }
 
   .mobile-icon-input-container {
