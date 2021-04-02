@@ -10,7 +10,7 @@ const SearchBar = ({ setShowFilterModal }) => {
   const TabletBreakPoint = 768;
 
   const [fullTimeOnly, setFullTimeOnly] = useState(true);
-  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
 
   console.log(fullTimeOnly);
@@ -36,7 +36,7 @@ const SearchBar = ({ setShowFilterModal }) => {
 
   const handleSearchClickHandler = (e) => {
     e.preventDefault();
-    searchJobs();
+    searchJobs(description, location, fullTimeOnly);
   };
 
   const handleCheckBoxChange = (event) => {
@@ -97,30 +97,23 @@ const SearchBar = ({ setShowFilterModal }) => {
     </svg>
   );
 
-  const searchJobs = async (jobTitle, jobLocation, fullTime) => {
+  const searchJobs = async (jobDescription, jobLocation, fullTime) => {
     const corsUrl = "https://cors-anywhere.herokuapp.com/";
 
     const deafaultUrl =
       "https://jobs.github.com/positions.json?description=python";
 
+    const searchUrl = `https://jobs.github.com/positions.json?description=${jobDescription}&full_time=${fullTime}&location=${jobLocation}`;
+
+    //when the page loads intitally grab random positions via the default url
+    const useDefaultUrl =
+      !jobDescription && !jobLocation ? deafaultUrl : searchUrl;
+
     try {
-      //when the page loads grab random positions
-      if (!title && !location) {
-        const getDefaultJobs = await axios.get(`${corsUrl}${deafaultUrl}`);
+      const getDefaultJobs = await axios.get(`${corsUrl}${useDefaultUrl}`);
 
-        if (getDefaultJobs) {
-          console.log(getDefaultJobs.data);
-        }
-      }
-      //TODO use url that has position and location parameters
-      if (title && location) {
-        const getJobs = await axios.get(
-          "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=python"
-        );
-
-        if (getJobs.data) {
-          console.log(getJobs);
-        }
+      if (getDefaultJobs) {
+        console.log(getDefaultJobs.data);
       }
     } catch (error) {
       console.log(error);
@@ -135,7 +128,7 @@ const SearchBar = ({ setShowFilterModal }) => {
       <input
         type="text"
         className="title-search-field"
-        onChange={(event) => setTitle(event.target.value)}
+        onChange={(event) => setDescription(event.target.value)}
         placeholder={
           viewportWidth >= desktopBreakPoint
             ? "Filter by title, companies, expertise…"
