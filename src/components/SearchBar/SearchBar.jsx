@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import axios from "axios";
+
 const SearchBar = ({ setShowFilterModal }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
@@ -7,11 +9,19 @@ const SearchBar = ({ setShowFilterModal }) => {
 
   const TabletBreakPoint = 768;
 
+  const [fullTimeOnly, setFullTimeOnly] = useState(true);
+  const [title, setTitle] = useState("");
+  const [location, setLocation] = useState("");
+
+  console.log(fullTimeOnly);
+
   useEffect(() => {
     //call function to set viewport width in state
     const handleWindowResize = () => setViewportWidth(window.innerWidth);
 
     window.addEventListener("resize", handleWindowResize);
+
+    searchJobs();
 
     // cleanup
     return () => {
@@ -26,7 +36,14 @@ const SearchBar = ({ setShowFilterModal }) => {
 
   const handleSearchClickHandler = (e) => {
     e.preventDefault();
+    searchJobs();
   };
+
+  const handleCheckBoxChange = (event) => {
+    setFullTimeOnly(event.target.checked);
+  };
+
+  //TODO these icons should be coming from a component
 
   const filterIcon = (
     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -80,12 +97,45 @@ const SearchBar = ({ setShowFilterModal }) => {
     </svg>
   );
 
+  const searchJobs = async (jobTitle, jobLocation, fullTime) => {
+    const corsUrl = "https://cors-anywhere.herokuapp.com/";
+
+    const deafaultUrl =
+      "https://jobs.github.com/positions.json?description=python";
+
+    try {
+      //when the page loads grab random positions
+      if (!title && !location) {
+        const getDefaultJobs = await axios.get(`${corsUrl}${deafaultUrl}`);
+
+        if (getDefaultJobs) {
+          console.log(getDefaultJobs.data);
+        }
+      }
+      //TODO use url that has position and location parameters
+      if (title && location) {
+        const getJobs = await axios.get(
+          "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=python"
+        );
+
+        if (getJobs.data) {
+          console.log(getJobs);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /* JSX getters */
+
   const titleSearch = (
     <div className="search-icon-input-container">
       {viewportWidth >= TabletBreakPoint && searchDesktopIcon}
       <input
         type="text"
         className="title-search-field"
+        onChange={(event) => setTitle(event.target.value)}
         placeholder={
           viewportWidth >= desktopBreakPoint
             ? "Filter by title, companies, expertise…"
@@ -104,6 +154,7 @@ const SearchBar = ({ setShowFilterModal }) => {
           type="text"
           className="location-search-field"
           placeholder="Filter by location…"
+          onChange={(event) => setLocation(event.target.value)}
         />
       </div>
       <div className="vertical-line two"></div>
@@ -131,8 +182,9 @@ const SearchBar = ({ setShowFilterModal }) => {
           type="checkbox"
           className="full-time-only-checkbox"
           id="full-time-only-checkbox"
-          name="vehicle1"
-          value="Bike"
+          name="full-time-checkbox"
+          onChange={(event) => handleCheckBoxChange(event)}
+          value="full-time"
         />
         <label for="full-time-only-checkbox" className="check-box-label">
           {viewportWidth >= desktopBreakPoint ? "full time only" : "full time"}
